@@ -6,6 +6,7 @@ import (
 
 func main() {
 	cards := deck.NewDeck()
+	cards.SaveToFile("./deckCards/output/my_cards.txt")
 
 	hand, remainingCards := cards.Deal(4)
 	hand.Print()
