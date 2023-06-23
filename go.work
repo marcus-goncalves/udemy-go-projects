@@ -1,5 +1,7 @@
-go 1.19
+go 1.20
 
-use ./deckCards
-
-use ./evenOrOdd
+use (
+	./deckCards
+	./evenOrOdd
+	./structs
+)
