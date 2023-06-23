@@ -4,4 +4,6 @@ use (
 	./deckCards
 	./evenOrOdd
 	./structs
+	./maps
+	./interfaces
 )
