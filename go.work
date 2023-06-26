@@ -6,4 +6,5 @@ use (
 	./structs
 	./maps
 	./interfaces
+	./channels
 )
