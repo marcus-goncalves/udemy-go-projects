@@ -1,10 +1,10 @@
 go 1.20
 
 use (
-	./deckCards
-	./evenOrOdd
-	./structs
-	./maps
-	./interfaces
-	./channels
+	./bootcamp1/deckCards
+	./bootcamp1/evenOrOdd
+	./bootcamp1/structs
+	./bootcamp1/maps
+	./bootcamp1/interfaces
+	./bootcamp1/channels
 )
