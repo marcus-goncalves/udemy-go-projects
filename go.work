@@ -8,6 +8,6 @@ use (
 	./bootcamp1/interfaces
 	./bootcamp1/channels
 	./devops-tools/ex-http
-	./devops-tools/headers
+	./devops-tools/ex-headers
 
 )
