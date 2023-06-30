@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bytes"
-	"encoding/base64"
 	"fmt"
 	"io"
 	"log"
@@ -16,18 +14,8 @@ func main() {
 		log.Fatalln("unable to create request")
 	}
 
-	// Create a base64 encoded user and password
-	buffer := &bytes.Buffer{}
-	enc := base64.NewEncoder(base64.URLEncoding, buffer)
-	enc.Write([]byte("user:passw0rd"))
-	enc.Close()
-	creds, err := buffer.ReadString('\n')
-	if err != nil && err.Error() != "EOF" {
-		log.Fatalln("unable to encode credentials")
-	}
-
-	// Add header
-	req.Header.Add("Authorization", fmt.Sprintf("Basic %s", creds))
+	// easier way
+	req.SetBasicAuth("user", "passw0rd")
 
 	resp, err := client.Do(req)
 	if err != nil {
