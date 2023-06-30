@@ -9,5 +9,6 @@ use (
 	./bootcamp1/channels
 	./devops-tools/ex-http
 	./devops-tools/ex-headers
+	./devops-tools/ex-marshall
 
 )
