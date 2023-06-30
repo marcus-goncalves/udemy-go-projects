@@ -16,7 +16,12 @@ func main() {
 }
 
 func getExample1() {
-	resp, err := http.Get("https://httpbin.org/get")
+	client := http.DefaultClient
+	req, err := http.NewRequest("GET", "https://httpbin.org/get", nil)
+	if err != nil {
+		log.Fatalln("unable to create request")
+	}
+	resp, err := client.Do(req)
 	if err != nil {
 		log.Fatalln("unable to response")
 	}
