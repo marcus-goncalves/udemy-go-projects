@@ -29,7 +29,7 @@ func (a *API) AddResource(name string, res *RestResource) {
 func (a *API) Call(name string, params map[string]string) error {
 	res, ok := a.Resources[name]
 	if !ok {
-		fmt.Errorf("resource does not exist: %s", name)
+		return fmt.Errorf("resource does not exist: %s", name)
 	}
 
 	if err := a.Client.ProcessRequest(a.BaseUrl, res, params); err != nil {
@@ -37,4 +37,13 @@ func (a *API) Call(name string, params map[string]string) error {
 	}
 
 	return nil
+}
+
+func (a *API) ResourceNames() []string {
+	resources := []string{}
+	for k := range a.Resources {
+		resources = append(resources, k)
+	}
+
+	return resources
 }
