@@ -2,9 +2,9 @@ package nap
 
 import (
 	"bytes"
+	"html/template"
 	"io"
 	"log"
-	"text/template"
 )
 
 type RestResource struct {

@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-type RouterFunc func(client *http.Response, content interface{}) error
+type RouterFunc func(resp *http.Response, content interface{}) error
 
 type CBRouter struct {
 	Routers       map[int]RouterFunc
