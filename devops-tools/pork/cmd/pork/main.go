@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -28,5 +29,7 @@ func init() {
 	viper.SetDefault("location", os.Getenv("HOME"))
 	viper.SetConfigName("pork")
 	viper.AddConfigPath(".")
-	viper.ReadInConfig()
+	if err := viper.ReadInConfig(); err != nil {
+		fmt.Println("no cfg found")
+	}
 }
