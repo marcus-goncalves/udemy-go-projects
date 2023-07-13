@@ -21,6 +21,19 @@ type Authentication interface {
 	AuthorizationHeader() string
 }
 
+func NewAuthToken(token string) *AuthToken {
+	return &AuthToken{
+		Token: token,
+	}
+}
+
+func NewAuthBasic(username, password string) *AuthBasic {
+	return &AuthBasic{
+		Username: username,
+		Password: password,
+	}
+}
+
 func (a *AuthToken) AuthorizationHeader() string {
 	return fmt.Sprintf("token %s", a.Token)
 }
