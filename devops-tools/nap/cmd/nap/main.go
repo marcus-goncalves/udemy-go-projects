@@ -25,7 +25,7 @@ func main() {
 	}
 
 	resource := os.Args[1]
-	if err := api.Call(resource, nil); err != nil {
+	if err := api.Call(resource, nil, nil); err != nil {
 		log.Fatalln(err)
 	}
 
