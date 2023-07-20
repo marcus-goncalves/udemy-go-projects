@@ -57,7 +57,7 @@ func GetRepositoryDoc(repository string) error {
 }
 
 func ReadmeDefaultRouter(resp *http.Response, _ interface{}) error {
-	return fmt.Errorf("status code:", resp.StatusCode)
+	return fmt.Errorf("status code: %d", resp.StatusCode)
 }
 
 func GetReadmeResource() *nap.RestResource {

@@ -24,7 +24,7 @@ var SearchCmd = &cobra.Command{
 	Use:   "search",
 	Short: "search for github repositories by keyword",
 	Run: func(cmd *cobra.Command, args []string) {
-		if err := SearchByKeyword; err != nil {
+		if err := SearchByKeyword(args); err != nil {
 			log.Fatalln("search failed:", err)
 		}
 	},
@@ -53,7 +53,7 @@ func SearchByKeyword(keywords []string) error {
 }
 
 func SearchDefaultRouter(resp *http.Response, _ interface{}) error {
-	return fmt.Errorf("status code:", resp.StatusCode)
+	return fmt.Errorf("status code: %d", resp.StatusCode)
 }
 
 func GetSearchResource() *nap.RestResource {
