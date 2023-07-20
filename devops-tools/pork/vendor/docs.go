@@ -24,8 +24,9 @@ var DocsCmd = &cobra.Command{
 		if len(args) <= 0 {
 			log.Fatalln("you must provide a repository url")
 		}
-		content := GetRepositoryDoc(args[0])
-		fmt.Println(content)
+		if err := GetRepositoryDoc(args[0]); err != nil {
+			log.Fatalln("failed to get docs: ", err)
+		}
 	},
 }
 
@@ -53,7 +54,7 @@ func GetRepositoryDoc(repository string) error {
 	return GithubAPI().Call("docs", map[string]string{
 		"owner":   values[0],
 		"project": values[1],
-	})
+	}, nil)
 }
 
 func ReadmeDefaultRouter(resp *http.Response, _ interface{}) error {
@@ -65,6 +66,6 @@ func GetReadmeResource() *nap.RestResource {
 	router.RegisterFunc(200, ReadmeSuccess)
 	router.DefaultRouter = ReadmeDefaultRouter
 	resource := nap.NewResource("/repos/{{.owner}}/{{.project}}/readme", "GET", router)
-	return resource
 
+	return resource
 }
