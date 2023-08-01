@@ -5,10 +5,16 @@ syntax = "proto3";
 package greet;
 option go_package = "udemy-projects.com/grpc/greet/proto";
 
-message Dummy {
-    uint32 id = 1;
+message GreetRequest {
+    string first_name = 1;
 }
 
-service DummyService {
+message GreetResponse {
+    string Result = 1;
+}
 
+
+
+service GreetService {
+    rpc Greet(GreetRequest) returns (GreetResponse);
 }
