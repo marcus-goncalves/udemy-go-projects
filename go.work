@@ -13,5 +13,5 @@ use (
 	./devops-tools/ex-error
 	./devops-tools/nap
 	./devops-tools/pork
-
+	./grpc
 )
